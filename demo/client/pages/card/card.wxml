@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container page" wx:if="{{code.length > 0}}">
+  <view class="panel">
+    <view class="header">
+    </view>
+    <view class="barcode">
+      <view class="barnum">{{code}}</view>
+      <canvas canvas-id="barcode" />
+    </view>
+    <view class="qrcode">
+      <canvas canvas-id="qrcode" />
+    </view>
+  </view>
+</view>
+<view class="container page1" wx:if="{{code.length == 0}}">
+    <button class="cardBtn">
+      <image class='btnImg' src='../../../../../common/basestyle/images/wechat.png'></image>
+      <view>注册会员卡</view>
+    </button>
+</view>

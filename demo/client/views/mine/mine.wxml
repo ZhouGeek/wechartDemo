@@ -1,0 +1,88 @@
+<template name="mine">
+	<view class="view-mine">
+    <view class="head" wx:if="{{!hasUserInfo}}">
+      <image class="photo"      src="../../../../../common/basestyle/images/user.png"></image>
+      <view class="userinfo">
+        <view class="nick">
+          请登录
+          <!-- <view class="icon vip">
+            V0会员
+          </view> -->
+        </view>
+      </view>
+    </view>
+    <view class="head" wx:if="{{hasUserInfo}}">
+      <image bindtap="bindViewTap" class="photo" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <view class="userinfo">
+        <view class="nick">
+          {{userInfo.nickName}}
+          <!-- <view class="icon vip">
+            V0会员
+          </view> -->
+        </view>
+        <view class="phone" wx:if="{{userDetail.attribute1}}">{{userDetail.attribute1}}</view>
+        <view class="phone" wx:if="{{userDetail.attribute1.length == 0}}">
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="phoneBtn">
+        <image class='btnImg' src='../../../../../common/basestyle/images/wechat.png'></image>
+        <view>绑定手机</view>
+        </button>
+        </view>
+      </view>
+    </view>
+		<view class="sub-info">
+			<view class="mod">
+				<view>0.00</view>
+				余额
+			</view>
+			<view class="mod">
+				<view>0</view>
+				卡包
+			</view>
+			<view class="mod">
+				<view>0</view>
+				优惠券
+			</view>
+		</view>
+
+		<view class="entries">
+			<view class="entry">
+				<icon class="icon cart"/>
+				全部订单
+			</view>
+			<!-- <view class="entry">
+				<icon class="icon group-buying"/>
+				拼团订单
+			</view>
+			<view class="entry">
+				<icon class="icon scan"/>
+				扫码订单
+			</view> -->
+		</view>
+
+		<view class="entries">
+			<view class="entry" bindtap='card'>
+				<icon class="icon member"/>
+				会员卡
+			</view>
+			<!-- <view class="entry">
+				<icon class="icon location"/>
+				收货地址
+			</view>
+			<view class="entry">
+				<icon class="icon help"/>
+				帮助中心
+			</view>
+			<view class="entry">
+				<icon class="icon download"/>
+				体验APP
+			</view> -->
+		</view>
+
+		<view class="entries">
+			<view class="entry" bindtap="mineCallPhone" data-phone="15162512008">
+				<icon class="icon service"/>
+				客服电话 15162512008
+			</view>
+		</view>		
+	</view>
+</template>
